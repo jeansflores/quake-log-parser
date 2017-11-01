@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree
+
+$('.modal-reports').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
