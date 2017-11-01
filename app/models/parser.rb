@@ -41,7 +41,7 @@ class Parser
 				@games.last.add_total_kill # Realiza a chamada de métodos do model game
 				@games.last.means_of_death[cause] += 1 # adicona uma causa de morte ao historico da partida
 
-				# Verifica-se os envolvidos no log e conforme a regra ações serão tomadas conforme a condição
+				# Verifica-se os envolvidos no log e conforme as regras de ações que serão tomadas conforme a condição
 				if assassin != "<world>" # pode ocorrer que o jogador se suicide então o jogador morreria para o worls (regra de negocio)
 					@games.last.players[assassin].add_kills # aciona o metodo de adicição de kills para o jogador
 				else
@@ -80,11 +80,11 @@ class Parser
 		line.match(/(?:^|\W)Kill(?:$|\W)/) ? true : false
 	end
 
-	def new_game?(line)
+	def new_game?(line) # verifica se o jogo esta iniciando
 		line.match(/(?:^|\W)InitGame(?:$|\W)/) ? true : false
 	end
 
-	def user?(line)
+	def user?(line) # verifica o jogador em um evento do jogo
 		line.match(/(?:^|\W)ClientUserinfoChanged(?:$|\W)/) ? true : false
 	end
 

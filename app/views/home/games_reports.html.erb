@@ -1,4 +1,14 @@
 <div class="container">
+  <div class="row d-flex header-page justify-content-center">
+    <h3>Games Reports</h3>
+  </div>
+  <% if @games.empty? %>
+    <div class="row d-flex header-page justify-content-center">
+      <div class="alert alert-danger" role="alert">
+        The inserted file is not in the quake game log standard!
+      </div>
+    </div>
+  <% end %>
   <% @games.each do |game| %>
     <div class="card margin-card">
     <h4 class="card-header"> Game <%= game.id %>  <small style="font-size: 13px;"> <b>total kills: </b> <%= game.total_kills %></small></h4>
@@ -43,15 +53,17 @@
   </a>
 </nav>
 
-<nav class="button-share-container">
-  <a class="buttons" data-toggle="modal" data-target="#reportModal">
-    <span class="buttons" tooltip="Report of causes of deaths">
-      <span class="rotate text-white">
-        <i class="ion-document-text" style="font-size: 30px"></i>
+<% if !@games.empty? %>
+  <nav class="button-share-container">
+    <a class="buttons" data-toggle="modal" data-target="#reportModal">
+      <span class="buttons" tooltip="Report of causes of deaths">
+        <span class="rotate text-white">
+          <i class="ion-document-text" style="font-size: 30px"></i>
+        </span>
       </span>
-    </span>
-  </a>
-</nav>
+    </a>
+  </nav>
+<%end%>
 
 <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -66,7 +78,7 @@
         <div class="container">
           <% @games.each do |game| %>
             <div class="card margin-card">
-            <h4 class="card-header"> Game <%= game.id %></h4>
+              <h4 class="card-header"> Game <%= game.id %>  <small style="font-size: 13px;"> <b>total kills: </b> <%= game.total_kills %></small></h4>
               <div class="card-body">
                 <div class="container">
                   <div class="col-md-12">

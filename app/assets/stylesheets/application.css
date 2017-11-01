@@ -18,6 +18,15 @@
    background-color: #f0f0f0 !important;
  }
 
+ .header-page{
+   margin-top: 22px;
+ }
+
+ #link-to-download{
+   margin-top: 320px;
+   color: #8e8e8e;
+ }
+
  .logo{
    margin-top: 30px;
    width: 100px;
