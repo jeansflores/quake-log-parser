@@ -1,10 +1,22 @@
 <div class="container">
-<div class="row">
-  <div class="col-lg-8 offset-lg-4">
-      <%= form_tag({action: :games_reports}, multipart: true) do %>
-      <%= file_field_tag('log') %>
-      <%= submit_tag("Parser") %>
-      <% end %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <img src="/assets/icon-quake3.png" class="logo">
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="card margin-card">
+          <h4 class="card-header d-flex justify-content-center"> Quake Log Parser
+          </h4>
+          <div class="card-body d-flex justify-content-center" style="margin: 15px 0px 15px 0px;">
+            <%= form_tag({action: :games_reports}, :multipart => true, :class => "form-log") do %>
+            <%= file_field_tag 'log', :class => "label-log" %>
+            <%= submit_tag "Parse", :class => "submit-log" %>
+            <% end %>
+            <a class="btn btn-danger text-white select-log">Select File <small>(games.log)</small></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

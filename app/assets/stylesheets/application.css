@@ -14,9 +14,24 @@
  *= require_self
  */
 
- .margin-card{
-   margin: 20px 0px
+ body{
+   background-color: #f0f0f0 !important;
  }
+
+ .logo{
+   margin-top: 30px;
+   width: 100px;
+   height: 100px;
+ }
+
+ .margin-card{
+   margin: 20px 0px;
+   border-top: 2px solid red !important;
+ }
+
+ a:hover {
+ cursor:pointer;
+}
 
  @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
 .button-share-container {
@@ -26,7 +41,26 @@
   right: 0;
 }
 
+.button-share-container2 {
+  bottom: 0;
+  position: fixed;
+  margin: 1em;
+  left: 0;
+}
+
 .buttons {
+  box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 20px auto 0;
+  position: relative;
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+
+.buttons2 {
   box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   display: block;
@@ -44,6 +78,12 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
 }
 
+.buttons2:active,
+.buttons2:focus,
+.buttons2:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+}
+
 .buttons:not(:last-child) {
   width: 35px;
   height: 35px;
@@ -51,11 +91,23 @@
   opacity: 0;
 }
 
+.buttons2:not(:last-child) {
+  width: 35px;
+  height: 35px;
+  margin: 20px auto 0 auto;
+  opacity: 0;
+}
 
 .buttons i {
     margin-left: 10px;
     margin-top: 10px;
 }
+
+.buttons2 i {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 .button-share-container:hover .buttons:not(:last-child) {
   opacity: 1;
   width: 40px;
@@ -64,7 +116,6 @@
   color:#FFF;
   font-size:1.4em;
 }
-/* Styling for showing buttons at differnt speeds */
 
 .buttons:nth-last-child(1) {
   -webkit-transition-delay: 25ms;
@@ -72,44 +123,11 @@
   background-color: #DB4437;
 }
 
-.buttons:not(:last-child):nth-last-child(2) {
-  -webkit-transition-delay: 20ms;
-  transition-delay: 20ms;
-  background-color: #3b5998;
-  background-position: center;
-  background-repeat: no-repeat;
+.buttons2:nth-last-child(1) {
+  -webkit-transition-delay: 25ms;
+  transition-delay: 25ms;
+  background-color: #0275d8;
 }
-
-.buttons:not(:last-child):nth-last-child(3) {
-  -webkit-transition-delay: 40ms;
-  transition-delay: 40ms;
-  background-color: #007bb5;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.buttons:not(:last-child):nth-last-child(4) {
-  -webkit-transition-delay: 60ms;
-  transition-delay: 60ms;
-  background-size: contain;
-  background-color: #dd4b39;
-}
-
-.buttons:not(:last-child):nth-last-child(5) {
-  -webkit-transition-delay: 80ms;
-  transition-delay: 80ms;
-  background-size: contain;
-  background-color: #00bf8f;
-
-}
-
-.buttons:not(:last-child):nth-last-child(6) {
-  -webkit-transition-delay: 100ms;
-  transition-delay: 100ms;
-  background-size: contain;
-  background-color: #00aced;
-}
-/* Show tooltip content on hover */
 
 [tooltip]:before {
   bottom: 20%;
@@ -136,26 +154,41 @@
   visibility: visible;
   opacity: 1;
 }
-/* Rotate primary button on hover */
 
 .rotate {
+  position: absolute;
+  margin: 6px auto auto 10px;
+  max-width: 24px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   -webkit-transition-property: -webkit-transform;
   transition-property: transform;
 }
 
-.rotate {
+.rotate2 {
   position: absolute;
-  margin: 15px auto auto 15px;
+  margin: 6px auto auto 10px;
   max-width: 24px;
   width: 24px;
   height: 24px;
-  background-image: url('http://unesp.br/Home/prope/relatorio.png');
   background-size: contain;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
 }
 
 .button-share-container:hover .rotate {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  color: #339900;
+}
+
+.button-share-container2:hover .rotate2 {
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
@@ -200,4 +233,12 @@ p.credits {
 .credits img {
   border-radius: 50%;
   width: 75px;
+}
+
+input[type='file']{
+  display: none !important ;
+}
+
+input[name='commit']{
+  display: none !important ;
 }

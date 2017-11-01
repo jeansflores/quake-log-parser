@@ -33,10 +33,22 @@
   <%end%>
 </div>
 
+<nav class="button-share-container2">
+  <a class="buttons2" onclick="window.location.href = '/';">
+    <span class="buttons2">
+      <span class="rotate2 text-white">
+        <i class="ion-arrow-left-b" style="font-size: 30px"></i>
+      </span>
+    </span>
+  </a>
+</nav>
+
 <nav class="button-share-container">
-  <a class="buttons" data-toggle="modal" data-target="#reportModal" >
+  <a class="buttons" data-toggle="modal" data-target="#reportModal">
     <span class="buttons" tooltip="Report of causes of deaths">
-      <span class="rotate" ></span>
+      <span class="rotate text-white">
+        <i class="ion-document-text" style="font-size: 30px"></i>
+      </span>
     </span>
   </a>
 </nav>
@@ -45,13 +57,12 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title center" id="reportModalLabel">Report of causes of deaths</h5>
+        <h5 class="modal-title" id="reportModalLabel">Report of causes of deaths</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
         <div class="container">
           <% @games.each do |game| %>
             <div class="card margin-card">
@@ -86,7 +97,6 @@
             </div>
           <%end%>
         </div>
-
       </div>
     </div>
   </div>

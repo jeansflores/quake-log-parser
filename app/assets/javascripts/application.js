@@ -17,4 +17,26 @@
 
 $('.modal-reports').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
-})
+});
+
+$(document).ready(function(){
+
+  $(function(){
+    labelLog.val("");
+  });
+
+  var formLog = $(".form-log");
+  var labelLog = $(".label-log");
+  var submitLog = $(".submit-log");
+  var selectLog = $(".select-log");
+
+  selectLog.on('click',function(){
+    labelLog.click();
+  });
+
+  labelLog.change(function(){
+    submitLog.click();
+  });
+
+  console.log(labelLog);
+});

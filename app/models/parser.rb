@@ -42,7 +42,7 @@ class Parser
 				@games.last.means_of_death[cause] += 1 # adicona uma causa de morte ao historico da partida
 
 				# Verifica-se os envolvidos no log e conforme a regra ações serão tomadas conforme a condição
-				if assassin != "<world>" # pode ocorrer que o jogador de suicide então o jogador morreria para o worls (regra de negocio)
+				if assassin != "<world>" # pode ocorrer que o jogador se suicide então o jogador morreria para o worls (regra de negocio)
 					@games.last.players[assassin].add_kills # aciona o metodo de adicição de kills para o jogador
 				else
 					@games.last.players[victim].subtract_kills # acionao o metodo de decremento de kill como o envolvido tenha de suicidado ou morrido por um fator esterno sem a açao outro jogador
