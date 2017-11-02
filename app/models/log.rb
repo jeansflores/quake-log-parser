@@ -10,7 +10,7 @@ class Log
     end
 
     #
-    # Destroi o arquivo copiado para o projeto
+    # Remove o arquivo copiado para o diretório do projeto
     #
     def destroy
       FileUtils.rm("log/games.log")
