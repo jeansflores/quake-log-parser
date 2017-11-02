@@ -8,8 +8,8 @@ class HomeController < ApplicationController
 
   #
   # Método e rota que faz a chamada da função de copiar o arquivo selecionado
-  # na página de index do projeto e ao mesmo tempo acionar o parser do arquivo
-  # após destruir o arquivo para que não fique rastros ou restos de log
+  # na página de index do projeto, acionar o parser do arquivo e
+  # após de disponibilizar o resultado do parse, destruir o arquivo para que não fique rastros ou restos de log
   #
   def games_reports
     log = Log.new(params[:log])

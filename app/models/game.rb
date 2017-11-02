@@ -12,7 +12,7 @@ class Game
 	end
 
 	#
-	# Adiciona mais ao contador de kills do game (partida)
+	# Adiciona mais um ao contador de kills do game (partida)
 	#
 	def add_total_kill
 		@total_kills += 1

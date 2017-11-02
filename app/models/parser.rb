@@ -4,13 +4,13 @@ load 'player.rb'
 class Parser
 
 	#
-	# Class onde contém as regras de negocio para a realização das task 1 e 2 do projeto
+	# Class onde contém as regras de negócio para a realização das task 1 e 2 do projeto
 	#
 
 	attr_accessor :games, :file
 
 
-	# Inicializa e ja realiza a leitura do arquivo updato para o projeto antes de ser destruido
+	# Inicializa e realiza a leitura do arquivo de log
 	def initialize
 
 		@games = []
@@ -24,7 +24,7 @@ class Parser
 				@games << Game.new((@games.length + 1).to_s)
 				next
 
-			# Faz a segunda verificação de linha: se contém um usuário na linha do log adiciona na lista de players
+			# Faz a segunda verificação de linha: se contém um usuário na linha do log
 			elsif user?(line)
 				player = Player.new get_user(line)
 				@games.last.players[player.name] = player
@@ -39,13 +39,13 @@ class Parser
 				cause = cause_of_death(line)
 
 				@games.last.add_total_kill # Realiza a chamada de métodos do model game
-				@games.last.means_of_death[cause] += 1 # adicona uma causa de morte ao historico da partida
+				@games.last.means_of_death[cause] += 1 # adicona uma causa de morte ao histórico da partida
 
-				# Verifica-se os envolvidos no log e conforme as regras de ações que serão tomadas conforme a condição
-				if assassin != "<world>" # pode ocorrer que o jogador se suicide então o jogador morreria para o worls (regra de negocio)
-					@games.last.players[assassin].add_kills # aciona o metodo de adicição de kills para o jogador
+				# Verifica-se os envolvidos no evento do log e conforme as regras de ações, será tomada uma decisão
+				if assassin != "<world>" # exemplo: pode ocorrer que o jogador se suicide, então o jogador morreria para o world (regra de negócio)
+					@games.last.players[assassin].add_kills # aciona o método de adicição de kills para o jogador
 				else
-					@games.last.players[victim].subtract_kills # acionao o metodo de decremento de kill como o envolvido tenha de suicidado ou morrido por um fator esterno sem a açao outro jogador
+					@games.last.players[victim].subtract_kills # aciona o método de decremento de kill como o envolvido tenha de suicidado ou morrido por um fator esterno sem a açao outro jogador
 				end
 			end
 		end
