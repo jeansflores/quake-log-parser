@@ -24,20 +24,20 @@
                   <th scope="col" class="text-center col-sm-4">Number Kills</th>
                 </tr>
               </thead>
-              <tbody>
-                <% i = 0 %>
-                <% game.players.each do |player|%>
-                  <tr class="row">
-                    <th scope="row" class="text-center col-sm-3"><%= i += 1 %></th>
-                    <td class="text-center col-sm-5"><%= player[1].name %></td>
-                    <td class="text-center col-sm-4"><%= player[1].kills %></td>
-                  </tr>
-                <%end%>
-              </tbody>
-            </table>
+                <tbody>
+                  <% i = 0 %>
+                  <% game.players.each do |player|%>
+                    <tr class="row">
+                      <th scope="row" class="text-center col-sm-3"><%= i += 1 %></th>
+                      <td class="text-center col-sm-5"><%= player[1].name %></td>
+                      <td class="text-center col-sm-4"><%= player[1].kills %></td>
+                    </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   <%end%>
@@ -79,33 +79,35 @@
           <% @games.each do |game| %>
             <div class="card margin-card">
               <h4 class="card-header"> Game <%= game.id %>  <small style="font-size: 13px;"> <b>total kills: </b> <%= game.total_kills %></small></h4>
-              <div class="card-body">
-                <div class="container">
-                  <div class="col-md-12">
-                    <div class="row">
-                    <table class="table table-striped table-sm">
-                      <thead>
-                        <tr class="row">
-                          <th scope="col" class="text-center col-sm-3">#</th>
-                          <th scope="col" class="text-center col-sm-5">Kills by Means</th>
-                          <th scope="col" class="text-center col-sm-4">Number Kills</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% i = 0 %>
-                        <% game.means_of_death.each do |player|%>
+              <% if game.total_kills > 0 %>
+                <div class="card-body">
+                  <div class="container">
+                    <div class="col-md-12">
+                      <div class="row">
+                      <table class="table table-striped table-sm">
+                        <thead>
                           <tr class="row">
-                            <th scope="row" class="text-center col-sm-3"><%= i += 1 %></th>
-                            <td class="text-center col-sm-5"><%= player[0] %></td>
-                            <td class="text-center col-sm-4"><%= player[1] %></td>
+                            <th scope="col" class="text-center col-sm-3">#</th>
+                            <th scope="col" class="text-center col-sm-5">Kills by Means</th>
+                            <th scope="col" class="text-center col-sm-4">Number Deaths</th>
                           </tr>
-                        <%end%>
-                      </tbody>
-                    </table>
+                        </thead>
+                          <tbody>
+                            <% i = 0 %>
+                            <% game.means_of_death.each do |player|%>
+                              <tr class="row">
+                                <th scope="row" class="text-center col-sm-3"><%= i += 1 %></th>
+                                <td class="text-center col-sm-5"><%= player[0] %></td>
+                                <td class="text-center col-sm-4"><%= player[1] %></td>
+                              </tr>
+                            <%end%>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              </div>
+              <%end%>
             </div>
           <%end%>
         </div>
