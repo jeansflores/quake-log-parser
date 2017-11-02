@@ -40,7 +40,7 @@ Para a execução do projeto localmente, siga os comandos abaixo no terminal:
 
     $ git clone https://github.com/jeansflores/quake-log-parser.git
     $ cd quake-log-parser
-    $ bundler
+    $ bundle install
     $ rails server
 
 ###### Observações
